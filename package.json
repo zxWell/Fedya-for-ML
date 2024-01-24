@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "discord.js": "^13.8.1",
+    "fs": "^0.0.1-security",
+    "install": "^0.13.0",
+    "simple-discord.db": "^0.1.0"
+  }
+}
