@@ -13,46 +13,22 @@ module.exports = async (bot, message) =>{
     // for (const guild of Memory.guilds) {
         
     // }
-    var random = Math.floor(Math.random() * 11); // Объявление переменной random - она вычисляет случайное число от 1 до 3
+    var random = Math.floor(Math.random() * (1001 - 1) + 1); // Объявление переменной random - она вычисляет случайное число от 1 до 1000
 
-    if (random == 1) {
-        message.channel.send('- вы усердно работали и получили +45$'), memMember.money+=45
-    } 
+    var making_money = ["вы усердно работали и получили", "СТЕПУХАА!!!", "спиздил пенсию", "удачный стрим))", "работа на заводе. ЗП"];
+    var loss_money = ["вы получили травму в шахте и заплатили за лечение",
+     "вы получили легкую травму в шахте и заплатили за лечение",
+      "вы сломали оборудование",
+        "оплата жилья",
+        "самое время реманта вашей конуры"];
 
-    else if (random == 2) {
-        message.channel.send('- СТЕПУХАА!!! +2500$'), memMember.money+=2500
-    } 
-    
-    else if (random == 3) {
-        message.channel.send('- спиздил пенсию +158$'), memMember.money+=158
-    } 
+    var loss_or_making = Math.floor(Math.random() * (2 - 0) + 0);
+    var random_massege = Math.floor(Math.random() * (5 - 0) + 0);
 
-    else if (random == 4) {
-        message.channel.send('- удачный стрим)) +100$'), memMember.money+=100
-    } 
-
-    else if (random == 5) {
-        message.channel.send('- работа на заводе. ЗП +1600$'), memMember.money+=1600
-    } 
-    
-    else if (random == 6) {
-        message.channel.send('- вы получили травму в шахте и заплатили за лечение -15$'), memMember.money-=15
-    }
-
-    else if (random == 7) {
-        message.channel.send('- вы получили легкую травму в шахте и заплатили за лечение -5$'), memMember.money-=5
-    }
-    
-    else if (random == 8) {
-        message.channel.send('- вы сломали оборудование -1500$'), memMember.money-=1500
-    }
-
-    else if (random == 9) {
-        message.channel.send('- оплата жилья -700$'), memMember.money-=700
-    }
-
-    else if (random == 10) {
-        message.channel.send('- самое время реманта вашей конуры -400$'), memMember.money-=400
+    if (loss_or_making == 0) {
+        message.channel.send("- " + loss_money[random_massege] + " -" + random + "$"), memMember.money-=random;
+    } else {
+        message.channel.send("- " + making_money[random_massege] + " +" + random + "$"), memMember.money+=random;
     }
 
     var random2 = Math.floor(Math.random() * 100001); // Объявление переменной random - она вычисляет случайное число от 1 до 3
@@ -62,10 +38,6 @@ module.exports = async (bot, message) =>{
     } 
 
         Memory.save();
-
-    // function getRandomInt(max) {
-    //     return Math.floor(Math.random() * max);
-    // }
 
     exports.conf = {
         aliases: [],
